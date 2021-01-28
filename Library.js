@@ -1,17 +1,21 @@
 'use strict'
-function Book(title, author, pagesCount, read) {
+
+let myLibrary = [];
+
+/**
+ * Constructor for the book class.
+ * @param {*} title Title of the book
+ * @param {*} author Author of the book
+ * @param {*} pageCount Number of pages in the book
+ * @param {*} readStatus Has the user read the book?
+ */
+function Book(title, author, pageCount, readStatus) {
     this.title = title;
     this.author = author;
-    this.pagesCount = pagesCount;
-    this.readStatus = read;
+    this.pageCount = pageCount;
+    this.readStatus = readStatus;
+}
 
-    let myLibrary = [];
-
-    function Book() {
-
-    }
-    
-    function addBookToLibrary() {
-
-    }
+function addBookToLibrary(title, author, pageCount, readStatus) {
+    myLibrary.push(new Book(title, author, pageCount, readStatus));
 }
