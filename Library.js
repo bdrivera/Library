@@ -19,3 +19,10 @@ function Book(title, author, pageCount, readStatus) {
 function addBookToLibrary(title, author, pageCount, readStatus) {
     myLibrary.push(new Book(title, author, pageCount, readStatus));
 }
+
+const btns = document.querySelectorAll('button');
+btns.forEach((button) => {
+    button.addEventListener('click', (e) => {
+            //on button click...
+        });
+     });
