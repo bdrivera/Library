@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library</title>
+        <link rel="stylesheet" type="text/css" href="Library.css" />
+    </head>
+    <body>
+        <h1>
+            Library
+        </h1>
+
+        <div id="buttonContainer">
+            <button id=""></button>
+            <button id=""></button>
+            <button id=""></button>
+        </div>
+
+        <script>
+            const btns = document.querySelectorAll('button');
+            btns.forEach((button) => {
+
+                button.addEventListener('click', (e) => {
+                    playGame(button.id);
+                });
+            });
+
+            function getMoveName(id) {
+                switch(id) {
+                    case 0: case "0": return "paper";
+                    case 1: case "1": return "rock";
+                    case 2: case "2": return "scissors";
+                }
+                return NaN;
+            }
+
+            function $(n) { return document.querySelector(n); }
+        </script>
+    </body>
+    <script type="text/javascript" src="Library.js"></script>
+</html>
