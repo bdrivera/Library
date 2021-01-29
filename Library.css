@@ -1,13 +1,24 @@
 body {
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
     text-align: center;
 }
 
-bookContainer {
+#banner {
+    max-width: 100%;
+}
+
+#libraryContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.book {
+    background-color: red;
+    height: 300px;
+    width: 300px;
 }
 
 * {
