@@ -1,4 +1,17 @@
 body {
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
+}
+
+bookContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
