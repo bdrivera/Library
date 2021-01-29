@@ -1,5 +1,9 @@
 'use strict'
 
+const libraryContainer = $('libraryContainer');
+const bookHeight = 200;
+const bookWidth = 200;
+
 let myLibrary = [];
 
 /**
@@ -14,15 +18,22 @@ function Book(title, author, pageCount, readStatus) {
     this.author = author;
     this.pageCount = pageCount;
     this.readStatus = readStatus;
+    this.element = document.createElement('div');
 }
 
 function addBookToLibrary(title, author, pageCount, readStatus) {
-    myLibrary.push(new Book(title, author, pageCount, readStatus));
+    newBook = new Book(title, author, pageCount, readStatus);
+    myLibrary.push(newBook);
+
+    newBook.element.style.width = etchContWidth + "px";
+    newBook.element.style.height = etchContWidth + "px";
+
+    libraryContainer.appendChild(newBook.element);
 }
 
 const btns = document.querySelectorAll('button');
 btns.forEach((button) => {
     button.addEventListener('click', (e) => {
-            //on button click...
+            //on button click... (.button.id)
         });
      });
