@@ -5,6 +5,7 @@ let myLibrary = [];
 let locationCounter = 0;
 
 addGeneralButtonListeners();
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", "384", "yes");
 
 /**
  * Constructor for the book class.
@@ -41,7 +42,10 @@ function addBookToLibrary(title, author, pageCount, readStatus) {
  * @param {*} book Book to be constructed and appended.
  */
 function assembleBook(book) {
+    let ranBook = Math.floor(Math.random() * 4);
     book.element.className = "book";
+    book.element.style.backgroundImage = 'url(./res/book' + ranBook + '.png)';
+    console.log(book.element.style.backgroundImage);
 
     let left = document.createElement('div');
     left.className = 'book-left';
@@ -49,7 +53,7 @@ function assembleBook(book) {
 
     let right = document.createElement('div');
     right.className = 'book-right';
-    right.innerHTML = "<div class='book-right'>" + book.pageCount + "pg <br/></div>"
+    right.innerHTML = "<div class='book-right'>" + book.pageCount + " pg <br/></div>"
 
     const remButton = document.createElement('button');
     remButton.id = 'removeBook';
