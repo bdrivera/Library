@@ -19,7 +19,6 @@ function Book(title, author, pageCount, readStatus) {
     this.pageCount = pageCount;
     this.readStatus = readStatus;
     this.element = document.createElement('div');
-    this.location;
 }
 
 /**
@@ -31,13 +30,16 @@ function Book(title, author, pageCount, readStatus) {
  */
 function addBookToLibrary(title, author, pageCount, readStatus) {
     let newBook = new Book(title, author, pageCount, readStatus); //Create newBook object
-    newBook.location = myLibrary.length; //set newBooks location for reference later
     myLibrary.push(newBook); //add newBook to the myLibrary array
 
     assembleBook(newBook);
     refreshLibrary();
 }
 
+/**
+ * Constructs the html elements of a book and appends them to the page.
+ * @param {*} book Book to be constructed and appended.
+ */
 function assembleBook(book) {
     book.element.className = "book";
 
@@ -50,44 +52,66 @@ function assembleBook(book) {
     right.innerHTML = "<div class='book-right'>" + book.pageCount + "pg <br/></div>"
 
     const remButton = document.createElement('button');
-    //remButton.id = 'removeBook';
+    remButton.id = 'removeBook';
     remButton.innerHTML = 'Remove';
     remButton.className = 'book-right';
 
     book.element.appendChild(left);
     right.appendChild(remButton);
     book.element.appendChild(right);
+    addButtonListener(remButton);
 }
 
-function removeBookFromLibrary(book) {
-
+/**
+ * Removes a book from the logical and visual library.
+ * @param {*} bookElement Visual book element to be identified logically and removed.
+ */
+function removeBookFromLibrary(bookElement) {
+    libraryContainer.removeChild(bookElement);
+    for(let i = 0; i < myLibrary.length; i++) {
+        if(myLibrary[i].element.innerHTML.trim() == bookElement.innerHTML.trim()) {
+            myLibrary.splice(myLibrary[i], 1);
+        }
+    }
 }
 
+/**
+ * Use logical library to reappend the entire visual library.
+ */
 function refreshLibrary() {
-    /*for(let i of myLibrary) {
-        libraryContainer.removeChild(i);
-    }*/
-
     for(let i of myLibrary) {
         libraryContainer.appendChild(i.element);
     }
 }
 
 /**
- * Adds static button listeners.
+ * Adds general, constant button listeners.
  */
 function addGeneralButtonListeners() {
     const btns = document.querySelectorAll('button');
     btns.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            switch(e.target.id) {
-                case "addBook":
-                    addBookToLibrary(getInputTitle(), getInputAuthor(),
-                                        getInputPageCount(), getInputReadStatus());
-                break;
-            }
-        });
+        addButtonListener(button);
      });
+}
+
+/**
+ * Adds individual button listeners.
+ * @param {*} button Button to be given a listener.
+ */
+function addButtonListener(button) {
+    button.addEventListener('click', (e) => {
+        switch(e.target.id) {
+            case "addBook":
+                addBookToLibrary(getInputTitle(), getInputAuthor(),
+                                    getInputPageCount(), getInputReadStatus());
+            break;
+
+            case "removeBook":
+                removeBookFromLibrary(e.target.parentNode.parentNode);
+                console.log(myLibrary);
+            break;
+        }
+    });
 }
 
 /**
