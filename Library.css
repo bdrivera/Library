@@ -12,7 +12,7 @@ body {
 #libraryContainer {
     display: flex;
     flex-flow: column-reverse wrap;
-    justify-items: flex-end;
+    justify-content: flex-start;
     align-content: flex-start;
     height: 500px;
     max-width: 1200px;
@@ -26,11 +26,13 @@ body {
 .book {
     display: flex;
     flex-flow: row;
-    margin-right: 20px;
-    border: 5px solid rgb(32, 16, 7);
-    background-color:rgb(71, 36, 16);
-    height: 100px;
-    width: 600px;
+    margin-bottom: -71px;
+    margin-right: 10px;
+    background-image: url(./res/book1.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 161px;
+    width: 500px;
 }
 
 .book-left {
@@ -47,6 +49,12 @@ body {
     justify-content: space-around;
     align-content: space-around;
     flex: 1;
+}
+.book-right-toggle {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+
 }
 
 * {

@@ -108,7 +108,6 @@ function addButtonListener(button) {
 
             case "removeBook":
                 removeBookFromLibrary(e.target.parentNode.parentNode);
-                console.log(myLibrary);
             break;
         }
     });
