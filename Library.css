@@ -6,12 +6,7 @@ body {
 
 #banner {
     display: flex;
-    /*justify-content: center;*/
-}
-
-#toolBar {
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 #libraryContainer {
@@ -24,6 +19,10 @@ body {
     color: wheat;
 }
 
+#input {
+    order: 1;
+}
+
 .book {
     display: flex;
     flex-flow: row;
@@ -31,7 +30,7 @@ body {
     border: 5px solid rgb(32, 16, 7);
     background-color:rgb(71, 36, 16);
     height: 100px;
-    width: 300px;
+    width: 600px;
 }
 
 .book-left {

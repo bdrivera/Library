@@ -9,16 +9,18 @@
             Library
         </h1>
 
-        <div id="toolBar">
-            Title:<input id="newTitle" type="text" value="Muzzy"/>
-            Author:<input id="newAuthor" type="text" value="Doc"/>
-            Pages:<input id="newPages" type="number" min="1" value='129'/>
-            Read?<input id="newRead" type="checkbox"/>
-            <button id="addBook">Add Book</button>
-        </div>
-
         <div id="libraryContainer">
-            
+            <div id="input" class="book">
+                <div class="book-left">
+                    <input id="newTitle" type="text" value="Muzzy"/>
+                    <input id="newAuthor" type="text" value="Doc"/>
+                </div>
+                <div class="book-right">
+                    <input id="newPages" type="text" value='129'/>
+                    <input id="newRead" type="checkbox"/>
+                    <button id="addBook">Add Book</button>
+                </div>
+            </div>
         </div>
     </body>
     <script type="text/javascript" src="Library.js"></script>
